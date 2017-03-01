@@ -2,9 +2,9 @@ package Model;
 
 
 public class Bottom {
-    int botId;
-    String botName;
-    int botPrice;
+    private int botId;
+    private String botName;
+    private int botPrice;
 
     public Bottom(int botId, String botName, int botPrice) {
         this.botId = botId;

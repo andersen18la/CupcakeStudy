@@ -2,10 +2,10 @@ package Model;
 
 
 public class Odetail {
-int ono;
-int userId;
-int qty;
-int price;
+private int ono;
+private int userId;
+private int qty;
+private int price;
 
     public Odetail(int ono, int userId, int qty, int price) {
         this.ono = ono;

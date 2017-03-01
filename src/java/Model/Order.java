@@ -1,8 +1,8 @@
 package Model;
 
 public class Order {
-int ono;
-int userId;
+private int ono;
+private int userId;
 
     public Order(int ono, int userId) {
         this.ono = ono;

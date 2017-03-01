@@ -1,10 +1,10 @@
 package Model;
 
 public class User {
-    String username;
-    String email;
-    String password;
-    int balance;
+    private String username;
+    private String email;
+    private String password;
+    private int balance;
 
     public User () {
         
@@ -15,6 +15,38 @@ public class User {
         this.password = password;
         this.balance = balance;
         this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
     
     

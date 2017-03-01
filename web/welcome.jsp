@@ -1,6 +1,6 @@
 <%-- 
-    Document   : theJSPpart
-    Created on : 27-02-2017, 11:24:33
+    Document   : welcome
+    Created on : 01-03-2017, 21:11:08
     Author     : Lasse Andersen
 --%>
 
@@ -9,9 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Welcome <%=session.getAttribute("name") %></title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h3>Login Successful!!!</h3>
+        <h4>Hello, <%=session.getAttribute("name") %></h4>
     </body>
 </html>

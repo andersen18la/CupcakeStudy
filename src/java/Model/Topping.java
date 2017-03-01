@@ -2,9 +2,9 @@ package Model;
 
 
 public class Topping {
-    int topId;
-    String topName;
-    int topPrice;
+    private int topId;
+    private String topName;
+    private int topPrice;
 
     public Topping(int topId, String topName, int topPrice) {
         this.topId = topId;
