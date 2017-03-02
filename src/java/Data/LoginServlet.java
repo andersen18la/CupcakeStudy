@@ -26,10 +26,10 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
-CakeMapper cm;
+
 
     public LoginServlet() throws Exception {
-        this.cm = new CakeMapper();
+     
     }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -70,22 +70,7 @@ CakeMapper cm;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        try {
-         User user = new User();
-         user.setUsername(request.getParameter("un"));
-         user.setPassword(request.getParameter("pw"));
-         CakeMapper bob = new CakeMapper();
-         bob.getLogin(user);
-         if (user.isValid()){
-             HttpSession session= request.getSession(true);
-              session.setAttribute("currentSessionUser",user);
-              response.sendRedirect("userLogged.jsp");
-         } else response.sendRedirect("invalidLogin.jsp");
-        }
-        catch (Throwable theException) {
-            System.out.println(theException);
-    }
+    
     }
     
     /**
