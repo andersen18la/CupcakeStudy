@@ -54,4 +54,60 @@ public class CakeMapper {
         }
         return status;
     }
+
+    public User getLogin(User user) {
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        String username = user.getUsername();
+        String password = user.getPassword();
+        String searchQuery = "select * from user where userid =? and password =?;";
+
+        System.out.println("your username is " + username);
+        System.out.println("your password is " + password);
+        System.out.println("Query: " + searchQuery);
+
+        try {
+           stmt= (PreparedStatement) con.createStatement();
+           rs = stmt.executeQuery(searchQuery);
+           boolean more = rs.next();
+           
+           if(!more){
+               System.out.println("Sorry, you are not a registred user! Please sign up first");
+               user.setValid(false);
+           } else if(more){
+               String userId = rs.getString("userid");
+               String pass = rs.getString("password");
+               System.out.println("Welcome " + userId);
+               user.setUsername(userId);
+               user.setPassword(pass);
+               user.setValid(true);
+           }
+        } catch (Exception ex) {
+            System.out.println("Log in failed: An Exception has occurred!" + ex);
+        }  
+         finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return user;
+    }
 }

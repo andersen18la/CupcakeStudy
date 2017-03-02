@@ -5,6 +5,8 @@
  */
 package Data;
 
+import Model.User;
+import Data.CakeMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -68,8 +70,24 @@ CakeMapper cm;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        try {
+         User user = new User();
+         user.setUsername(request.getParameter("un"));
+         user.setPassword(request.getParameter("pw"));
+         CakeMapper bob = new CakeMapper();
+         bob.getLogin(user);
+         if (user.isValid()){
+             HttpSession session= request.getSession(true);
+              session.setAttribute("currentSessionUser",user);
+              response.sendRedirect("userLogged.jsp");
+         } else response.sendRedirect("invalidLogin.jsp");
+        }
+        catch (Throwable theException) {
+            System.out.println(theException);
     }
-
+    }
+    
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -81,26 +99,7 @@ CakeMapper cm;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    try {
-        processRequest(request, response);
-        
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        
-        String n=request.getParameter("username");
-        String p=request.getParameter("userpass");
-        HttpSession session = request.getSession(false);
-        if(session != null){
-            session.setAttribute("name", n);
-        }
-        if (cm.getUser(n, p)){
-            RequestDispatcher rd =request.getRequestDispatcher("index.jsp");
-            rd.include(request, response);
-        }
-        out.close();
-    } catch (SQLException ex) {
-        Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    
     }
     
 

@@ -5,6 +5,7 @@ public class User {
     private String email;
     private String password;
     private int balance;
+    private boolean valid;
 
     public User () {
         
@@ -47,6 +48,14 @@ public class User {
 
     public void setBalance(int balance) {
         this.balance = balance;
+    }
+
+    public boolean isValid() {
+        return valid;
+    }
+
+    public void setValid(boolean valid) {
+        this.valid = valid;
     }
     
     
