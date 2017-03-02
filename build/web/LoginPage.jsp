@@ -20,7 +20,7 @@
         Please enter your password
         <input type="text" name="pw"/><br>
         
-        <input type="submit"value="submit">
+        <input type="submit"value="Login">
     </form>
     </body>
 </html>

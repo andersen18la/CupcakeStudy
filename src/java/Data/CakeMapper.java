@@ -110,4 +110,12 @@ public class CakeMapper {
         }
         return user;
     }
+    public User login(String username, String password)
+    {
+        if("andersen18".equals(username) && "12345678".equals(password))
+        {
+            return new User("Lasse", password);
+        }
+        return null;
+    }
 }

@@ -9,14 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>User Logged Successfully</title>
+        <title>Successfully logged in</title>
     </head>
     <body>
     <center> 
-        <% User currentUser = (User (session.getAttribute("currentSessionUser")));%>
-        Welcome <%=currentUser.getUsername()+ "" + currentUser.getPassword()%>
+       <%-- <% User currentUser = (User (session.getAttribute("currentSessionUser")));%>
+        Welcome <%=currentUser.getUsername()+ "" + currentUser.getPassword()%> 
+       --%>
     </center>
-        <h1>Hello World!</h1>
+        
     </body>
     
 </html>
