@@ -14,6 +14,7 @@
     <body>
     <center>
         Sorry, you are not a registred user! Please sign up first
+        <a href="LoginPage.jsp"><button>Try again</button></a>
     </center>
       
     </body>
