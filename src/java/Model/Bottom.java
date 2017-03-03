@@ -2,22 +2,22 @@ package Model;
 
 
 public class Bottom {
-    private int botId;
+    private int botID;
     private String botName;
     private int botPrice;
 
-    public Bottom(int botId, String botName, int botPrice) {
-        this.botId = botId;
+    public Bottom(int botID, String botName, int botPrice) {
+        this.botID = botID;
         this.botName = botName;
         this.botPrice = botPrice;
     }
 
     public int getBotId() {
-        return botId;
+        return botID;
     }
 
     public void setBotId(int botId) {
-        this.botId = botId;
+        this.botID = botID;
     }
 
     public String getBotName() {

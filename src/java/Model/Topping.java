@@ -5,7 +5,11 @@ public class Topping {
     private int topId;
     private String topName;
     private int topPrice;
-
+ 
+    public Topping (){
+        
+        
+    }
     public Topping(int topId, String topName, int topPrice) {
         this.topId = topId;
         this.topName = topName;

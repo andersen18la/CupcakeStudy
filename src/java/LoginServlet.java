@@ -5,9 +5,12 @@
  */
 
 import Data.CakeMapper;
+import Model.Bottom;
+import Model.Topping;
 import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -39,6 +42,22 @@ public class LoginServlet extends HttpServlet {
             String test = request.getParameter("test");
             HttpSession session = request.getSession();
             CakeMapper cm = new CakeMapper();
+            ArrayList<Topping> topList = (ArrayList<Topping>) request.getSession().getAttribute("topList");
+            ArrayList<Bottom> botList = (ArrayList<Bottom>) request.getSession().getAttribute("botList");
+            
+            if( topList == null){
+                topList = cm.getTop();
+                session.setAttribute("topList", topList);
+            } else {
+              session.setAttribute("topList", topList);
+            }
+            
+            if(botList == null){
+                botList = cm.getBot();
+                session.setAttribute("botList", botList);
+            }else {
+                session.setAttribute("botList", botList);
+            }
             response.setContentType("text/html;charset=UTF-8");
             try (PrintWriter out = response.getWriter()) {
                 
