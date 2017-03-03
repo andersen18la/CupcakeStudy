@@ -9,10 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome <%=session.getAttribute("name") %></title>
+        <title>Welcome <%=session.getAttribute("email") %></title>
     </head>
     <body>
         <h3>Login Successful!!!</h3>
-        <h4>Hello, <%=session.getAttribute("name") %></h4>
+        <h4>Hello, <%=session.getAttribute("email") %></h4>
     </body>
 </html>

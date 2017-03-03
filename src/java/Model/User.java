@@ -1,29 +1,32 @@
 package Model;
 
 public class User {
-    private String username;
+
+    private String userId;
     private String email;
     private String password;
     private int balance;
     private boolean valid;
 
-    public User () {
-        
-        
+    public User() {
+
     }
-    public User(String username, String password) {
-        this.username = username;
+
+    public User(String userId, String email, String password, int balance) {
+        this.userId = userId;
+        this.email = email;
         this.password = password;
-        //this.balance = balance;
-       // this.email = email;
+        this.balance = balance;
+        
     }
 
-    public String getUsername() {
-        return username;
+    
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getEmail() {
@@ -57,6 +60,5 @@ public class User {
     public void setValid(boolean valid) {
         this.valid = valid;
     }
-    
-    
+
 }
